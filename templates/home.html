@@ -1,4 +1,23 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h1>Roman to Integer Converter</h1>
+<h1>Integer to Roman Converter</h1>
+{% if error %}
+<div class="alert alert-warning" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+<form class="form-inline mt-2 mt-md-0" action="{% url 'home' %}"
+method="get">
+  <input name="integer" class="form-control mr-sm-2" type="text" placeholder="Integer"
+  aria-label="Integer to Roman Converter">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br />
+{% if romannumeral %}
+    <div class="alert alert-primary" role="alert"> 
+        <em>{{ integer }}</em> is converted to <strong>{{ romannumeral }}</strong> in Roman numeral.
+    </div>
+{% endif %}
+
 {% endblock content %}
