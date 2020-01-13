@@ -63,3 +63,16 @@ class IntegerToRomanTests(SimpleTestCase):
         data = "apple"
         with self.assertRaises(TypeError):
             result = integerToRoman(data)
+    
+    def test_bad_range_maximum(self):
+        "Tests whether the input exceeds the allowed maximum range"
+        input = 4214
+        with self.assertRaises(ValueError):
+            result = integerToRoman(input)
+    
+    def test_bad_range_minimum(self):
+        "Tests whether the input exceeds the allowed minimum range"
+        input = 0
+        with self.assertRaises(ValueError):
+            result = integerToRoman(input)
+
